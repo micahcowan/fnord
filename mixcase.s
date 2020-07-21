@@ -7,18 +7,19 @@ MON_COut= $FDF0
 
         .org $300
         CLD
-        LDX Flag
-        BEQ Upper
-Lower:  CMP #Scr_A      ; If the character in Acc is <'A' or >'Z', pass as-is
+        PHA
+        LDA Flag
+        EOR #$FF
+        CMP #$01
+        STA Flag
+        PLA
+        BCC Upper
+Lower:  
+        CMP #Scr_A      ; If the character in Acc is <'A' or >'Z', pass as-is
         BMI COut
         CMP #(Scr_Z+1)
         BCS COut
 Flip:   EOR #LCBit      ; Flip lower-case/upper-case
-        TAY             ; move char arg out of the way (to Y)
-        TXA
-        EOR #$01        ; Toggle the upper/lower flag
-        STA Flag        ; and save it
-        TYA             ; restore char arg
 COut:   JMP MON_COut    ; INVOKE the monitor's COut1 function.
 Upper:  CMP #(Scr_A|LCBit); If the character in Acc is <'a' or >'z', pass as-is
         BMI COut
@@ -27,3 +28,4 @@ Upper:  CMP #(Scr_A|LCBit); If the character in Acc is <'a' or >'z', pass as-is
         BCC Flip
         NOP
 Flag:   .BYTE $00
+Store_A:.BYTE $00
