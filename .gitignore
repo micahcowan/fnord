@@ -2,3 +2,5 @@
 *.list
 *.od
 *.raw
+*.add
+disk.dsk
