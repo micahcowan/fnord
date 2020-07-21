@@ -1,6 +1,6 @@
 .PHONY: all
 
-PROGRAMS = mixcase
+PROGRAMS = mixcase fnord
 PROGRAMS_od = $(patsubst %,%.od,$(PROGRAMS))
 PROGRAMS_add = $(patsubst %,%.add,$(PROGRAMS))
 all: $(PROGRAMS_add)
@@ -21,7 +21,7 @@ disk.dsk: empty.dsk
 %.raw: %.o
 	ld65 -t none -o $@ $^
 
-%.o %.list: %.s
+%.o %.list: %.s #include.inc
 	ca65 --listing $(basename $@).list $(basename $@).s
 
 .PHONY: clean

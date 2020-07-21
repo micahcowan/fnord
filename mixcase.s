@@ -3,9 +3,7 @@ Scr_Z   = $DA
 LcBit   = $20
 IsLcBit = $01
 IsUcBit = $02
-MON_COut= $FDF0
 
-        .org $300
         .include "install.inc"
 Begin:  CLD
         STX Temp        ; Save existing value in X
