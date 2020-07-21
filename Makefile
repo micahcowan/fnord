@@ -11,8 +11,12 @@ all: $(PROGRAMS_add)
 	dos33 -y -a 0x300 fnord.dsk BSAVE $(basename $@).raw $(shell echo $(basename $@) | tr '[:lower:]' '[:upper:]')
 	touch $@
 
-fnord.dsk: empty.dsk
+fnord.dsk: empty.dsk HELLO
 	cp empty.dsk fnord.dsk
+	dos33 -y fnord.dsk SAVE A HELLO
+
+HELLO: hello.bas
+	tokenize_asoft < $< > $@ || { rm $@; exit 1; }
 
 %.od:
 %.od: %.raw
