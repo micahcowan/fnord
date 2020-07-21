@@ -7,12 +7,12 @@ all: $(PROGRAMS_add)
 
 .SECONDARY:
 
-%.add: %.od disk.dsk
-	dos33 -y -a 0x300 disk.dsk BSAVE $(basename $@).raw $(shell echo $(basename $@) | tr '[:lower:]' '[:upper:]')
+%.add: %.od fnord.dsk
+	dos33 -y -a 0x300 fnord.dsk BSAVE $(basename $@).raw $(shell echo $(basename $@) | tr '[:lower:]' '[:upper:]')
 	touch $@
 
-disk.dsk: empty.dsk
-	cp empty.dsk disk.dsk
+fnord.dsk: empty.dsk
+	cp empty.dsk fnord.dsk
 
 %.od:
 %.od: %.raw
@@ -26,4 +26,4 @@ disk.dsk: empty.dsk
 
 .PHONY: clean
 clean:
-	rm -f *.add *.o *.list *.od *.raw disk.dsk
+	rm -f *.add *.o *.list *.od *.raw fnord.dsk
