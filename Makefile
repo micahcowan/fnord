@@ -1,6 +1,6 @@
 .PHONY: all
 
-PROGRAMS = mixcase fnord
+PROGRAMS = mixcase fnord hlspaces
 PROGRAMS_od = $(patsubst %,%.od,$(PROGRAMS))
 PROGRAMS_add = $(patsubst %,%.add,$(PROGRAMS))
 all: $(PROGRAMS_add)
