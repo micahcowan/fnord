@@ -1,5 +1,3 @@
-        ;.include "common.inc"
-
 Scr_A   = $C1
 Scr_Z   = $DA
 LcBit   = $20
@@ -8,7 +6,8 @@ IsUcBit = $02
 MON_COut= $FDF0
 
         .org $300
-        CLD
+        .include "install.inc"
+Begin:  CLD
         STX Temp        ; Save existing value in X
         TAX             ; Move character arg to X
 TstUC:  CPX #Scr_A      ; Note if the character in Acc is <'A' or >'Z'
