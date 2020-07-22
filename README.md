@@ -18,11 +18,41 @@ To return output to normal, enter:
 ```
 or restart basic with Control-RESET
 
-These programs have been tested on a real-life Apple //c, and via emulation on enhanced Apple //e and an Apple ][+ configurations.
+These programs have been tested on a real-life Apple //c, and via emulation on enhanced Apple //e and Apple ][+ configurations.
+
+Try running the `CATALOG` or `LIST` commands with a filter enabled - or just start typing away at the prompt and see what happens.
+
+Sadly, the filters cannot be chained, one to another, primarily because they all install to the same space in memory, overwriting one another.
 
 ## How to try it out!
 
 The easiest way to try these programs is to grab the `fnord.dsk` image from github's "releases" tab for this project. Then either run in an Apple ][ emulator, or transfer to your real Apple II-series computer via something like [Floppy Emu](https://www.bigmessowires.com/floppy-emu/) or [ADTPro](https://adtpro.com/), boot the disk, and follow the instructions!
+
+## Filter Descriptions
+
+### `BRUN MIXCASE`
+Triggers automatic MiXeD cAsE mOdE. Doesn't play well with `INVERSE` or `FLASH`; numbers and symbols will be displayed instead of the lowercase characters.
+
+### `BRUN LEET`
+Now your program's output will look like it was written by a 1337 h4x0r! Plays nice with `INVERSE` or `FLASH`.
+
+### `BRUN DOUBLE`
+Doubles every character printed, except carriage return (so that lines aren't doubly-separated). If the character is a letter, then it will print the first one in uppercase, the second one in lowercase. Doesn't play well with `INVERSE` and `FLASH`. The length of what's typed is of course modified, but backspacing (with the Left Arrow key) still works intuitively because it, too, gets processed twice.
+
+### `BRUN WHABUT`
+Based on a spoken "code" sometimes used by parents to prevent listening children from understanding what is being said. Featured on Bojack Horseman. Automatically adds "AB" before every vowel, unless the previous character encountered had also been a vowel. Works best with capital letters (because the "AB" additions are always capitals), and (for that reason) plays nice with `INVERSE` or `FLASH`. Take note: if you backspace over the inserted "AB" characters with the Left Arrow key, you will in actuality be backing over other characters that came before them, since they only appear on the display and were not processed as part of the "current input line". It's a good idea to avoid backing over your input in this mode, in general.
+
+### `BRUN FNORD`
+Just adds an extra word, a lower-case "fnord", at the end of the line just before every carriage return (whether you typed it, or the end of a line was reached in a program's output. Since the word is lower-case it will not play well with `INVERSE` or `FLASH`
+
+### `BRUN HLSPACES`
+Very simple. Just automatically inplies `INVERSE` to any new, explicitly-written space characters.
+
+## But why, though?
+
+This was done in part as a fun exercise while I was exploring the internals of how output is processed in the Apple ][ ROM code (the Monitor, and AppleSoft Basic), and in part because I needed something fun/cool to work on for the [KansasFest 2020 Hackfest](https://www.kansasfest.org/hackfest/). I was exploring this area of the Apple's internals because I was curious if it was possible to set it up so that a BASIC `PRINT` statement would write simultaneously to page one, and also page two, of the text display region of memory. Turns out, it is possible! ...though you first have to modify AppleSoft's understanding of where your BASIC program resides, as normally it resides at the start of the text display "page two" area, so writing there would obliterate the program while it ran, unless you take pains.
+
+But while I was in there, I began to get silly ideas of what else you might make the `PRINT` statements (or other output functions) do - thus this toy project was born!
 
 ## Building notes
 
