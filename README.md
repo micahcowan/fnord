@@ -1,6 +1,10 @@
 # FNORD
 Some fun ways to mess with Apple ]['s output routine
 
+Try running it yourself in [a browser-based Apple II emulator](http://micah.cowan.name/apple2js/apple2jse.html#fnord)!
+
+See also [this YouTube video](https://youtu.be/-ihj4dO9wOI) on the filters and what they do.
+
 ## About
 
 This project contains a number of programs for Apple ][ computers that will mess with screen output - both as you are typing it, and from program and command output.
@@ -26,7 +30,9 @@ Sadly, the filters cannot be chained, one to another, primarily because they all
 
 ## How to try it out!
 
-The easiest way to try these programs is to grab the `fnord.dsk` image from github's "releases" tab for this project. Then either run in an Apple ][ emulator, or transfer to your real Apple II-series computer via something like [Floppy Emu](https://www.bigmessowires.com/floppy-emu/) or [ADTPro](https://adtpro.com/), boot the disk, and follow the instructions!
+The easiest way to try these programs is to run them in [an Apple II emulator in your browser](http://micah.cowan.name/apple2js/apple2jse.html#fnord)!
+
+You can also grab the `fnord.dsk` image from github's "releases" tab for this project. Then either run in an Apple ][ emulator, or transfer to your real Apple II-series computer via something like [Floppy Emu](https://www.bigmessowires.com/floppy-emu/) or [ADTPro](https://adtpro.com/), boot the disk, and follow the instructions!
 
 ## Filter Descriptions
 
