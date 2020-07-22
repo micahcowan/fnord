@@ -1,5 +1,6 @@
 Scr_A   = $C1
 Scr_Z   = $DA
+Scr_CR  = $8D
 LcBit   = $20
 
 
@@ -22,5 +23,7 @@ FlipChar:               ; We have a letter. Emit upper, then lowercase.
         JMP MON_COut    ;  and output
         NOP
 DoubleChar:             ; Not a letter. Simply double it.
+        CMP #Scr_CR
+        BEQ Is_CR       ; ...except if it's a carriage return.
         JSR MON_COut
-        JMP MON_COut
+Is_CR:  JMP MON_COut
