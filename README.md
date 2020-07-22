@@ -16,9 +16,9 @@ To return output to normal, enter:
 ```
   ] pr#0
 ```
-or restart basic with Control-RESET
+or restart BASIC with Control-RESET
 
-These programs have been tested on a real-life Apple //c, and via emulation on enhanced Apple //e and Apple ][+ configurations.
+These programs have been tested on a real-life Apple //c, and via emulation on enhanced Apple //e and Apple ][+ configurations (the Apple ][+ can only work well with the `LEET`, `WHABAT`, and `HLSPACES` filters, since it lacks a lowercase character set).
 
 Try running the `CATALOG` or `LIST` commands with a filter enabled - or just start typing away at the prompt and see what happens.
 
@@ -39,7 +39,7 @@ Now your program's output will look like it was written by a 1337 h4x0r! Plays n
 ### `BRUN DOUBLE`
 Doubles every character printed, except carriage return (so that lines aren't doubly-separated). If the character is a letter, then it will print the first one in uppercase, the second one in lowercase. Doesn't play well with `INVERSE` and `FLASH`. The length of what's typed is of course modified, but backspacing (with the Left Arrow key) still works intuitively because it, too, gets processed twice.
 
-### `BRUN WHABUT`
+### `BRUN WHABAT`
 Based on a spoken "code" sometimes used by parents to prevent listening children from understanding what is being said. Featured on Bojack Horseman. Automatically adds "AB" before every vowel, unless the previous character encountered had also been a vowel. Works best with capital letters (because the "AB" additions are always capitals), and (for that reason) plays nice with `INVERSE` or `FLASH`. Take note: if you backspace over the inserted "AB" characters with the Left Arrow key, you will in actuality be backing over other characters that came before them, since they only appear on the display and were not processed as part of the "current input line". It's a good idea to avoid backing over your input in this mode, in general.
 
 ### `BRUN FNORD`
