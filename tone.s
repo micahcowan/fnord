@@ -9,11 +9,11 @@ Scr_SPC = $a0
 ; Easy-to-edit locations of the timings
 ;  and temp var "holes"
 TONE_LENGTH:
-        .BYT $10
+        .BYT $05
 TONE_INTER_NS:
-        .BYT $1C
+        .BYT $30
 TONE_INTER_SP:
-        .BYT $1A
+        .BYT $2E
 TONE_INTER:
         NOP
 CHARSV:
